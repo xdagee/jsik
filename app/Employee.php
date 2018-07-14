@@ -24,6 +24,6 @@ class Employee extends Model
 
     public function specialities()
 	{
-		return $this->belongsToMany(LeaveType::class, 'employee_specialities')->withTimestamps();
+		return $this->belongsToMany(Speciality::class, 'employee_specialities')->withTimestamps();
 	}
 }

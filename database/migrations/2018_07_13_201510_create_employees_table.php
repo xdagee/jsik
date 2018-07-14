@@ -23,13 +23,13 @@ class CreateEmployeesTable extends Migration
             $table->integer('years_of_experience')->nullable(false)->default(0);
             $table->string('work_place',125)->nullable();
             $table->unsignedInteger('residence_id')->nullable(false);
-            $table->unsignedInteger('place_of_births_id')->nullable(false);
-            $table->unsignedInteger('education_levels_id')->nullable(false);
+            $table->unsignedInteger('place_of_birth_id')->nullable(false);
+            $table->unsignedInteger('education_level_id')->nullable(false);
             $table->timestamps();
 
             $table->foreign('residence_id')->references('id')->on('residences')->onDelete('restrict')->onUpdate('cascade');
-            $table->foreign('place_of_births_id')->references('id')->on('place_of_births')->onDelete('restrict')->onUpdate('cascade');
-            $table->foreign('education_levels_id')->references('id')->on('education_levels')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreign('place_of_birth_id')->references('id')->on('place_of_births')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreign('education_level_id')->references('id')->on('education_levels')->onDelete('restrict')->onUpdate('cascade');
         });
     }
 

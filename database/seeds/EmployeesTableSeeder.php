@@ -11,6 +11,8 @@ class EmployeesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\LeaveAction::class, 50)->create();
+        factory(App\Employee::class, 50)->create()->each(function($e){
+        	$e->specialities()->attach(App\Speciality::all()->random()->id);
+        });
     }
 }

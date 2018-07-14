@@ -57,6 +57,13 @@ $factory->define(App\PlaceOfBirth::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(App\Speciality::class, function (Faker $faker) {
+
+    return [
+        'name' => $faker->unique()->jobTitle,
+    ];
+});
+
 $factory->define(App\Employee::class, function (Faker $faker) {
     $gender = $faker->boolean($chanceOfGettingTrue = 50);
     $gend = $gender ? 'male': 'female';
