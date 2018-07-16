@@ -1,6 +1,6 @@
     
     <footer id="footer">
-        copyright &copy; 2018 jisk; made for the web for the love of technology.
+        copyright &copy; 2018 jisk; made for the web with the love of technology.
     </footer>
     <!-- Older IE warning message -->
     <!--[if lt IE 9]>

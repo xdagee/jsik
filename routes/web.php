@@ -17,9 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/skillsets', function() {
-    //
-    return view('skillsets');
-});
+Route::get('skills', 'SkillsController@index');
+Route::post('skills/add', 'SkillsController@store');
+Route::get('skills/{skill}', 'SkillsController@show');

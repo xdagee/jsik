@@ -29,8 +29,8 @@
             </ul>
         </div>
         <ul class="main-menu">
-            <li><a href="{{ url ('home') }}"><i class="zmdi zmdi-home"></i> Home </a></li>
-            <li><a href="{{ url ('skillsets') }}"><i class="zmdi zmdi-trending-up"></i> Skillsets </a></li>
+            <li><a href="{{ url ('dashboard') }}"><i class="zmdi zmdi-home"></i> Dashboard </a></li>
+            <li><a href="{{ url ('skills') }}"><i class="zmdi zmdi-trending-up"></i> Skills </a></li>
         </ul>
     </div>
 </aside>
