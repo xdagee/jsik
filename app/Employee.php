@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Employee extends Model
 {
@@ -26,4 +26,12 @@ class Employee extends Model
 	{
 		return $this->belongsToMany(Speciality::class, 'employee_specialities')->withTimestamps();
 	}
+
+    /**
+     * Accessor for Age.
+    */
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['dob'])->age;
+    }
 }

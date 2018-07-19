@@ -12,13 +12,35 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::resource('dashboard', 'DashboardController');
 
-Route::get('skills', 'SkillsController@index');
-Route::post('skills/add', 'SkillsController@store');
-Route::get('skills/{skill}', 'SkillsController@show');
+Route::get('/profile', function () {
+	return view('profile');
+});
+
+
+// skills routing...
+Route::get('/skills', 'SpecialitiesController@index');
+Route::resource('skills', 'SpecialitiesController');
+
+// Route::get('skills/create','SpecialitiesController@create');
+// Route::post('skills', 'SpecialitiesController@store');
+// Route::get('skills/{skill}', 'SpecialitiesController@show');
+
+// employees routing...
+Route::get('/employees', 'EmployeesController@index');
+Route::resource('employees', 'EmployeesController');
+
+// Route::get('employees/create', 'EmployeesController@create');
+// Route::post('employees', 'EmployeesController@store');
+// Route::get('employees/{employee}', 'EmployeesController@show');
+
+// calendar
+Route::get('/calendar','CalendarController@index');
+Route::resource('calendar', 'CalendarController');

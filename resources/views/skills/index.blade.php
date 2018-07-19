@@ -3,128 +3,67 @@
 @section('content')
 
 	<section id="content">
+		<div class="container">
+			<div class="card">
+				<div class="card-header pull-right">
+					<a data-toggle="modal" href="#addSkill" class="btn btn-primary">Add Skill</a>
+				</div>
+
+				<div class="modal fade" id="addSkill" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+				    <div class="modal-dialog">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <h4 class="modal-title">Add New Skill</h4>
+				            </div>
+
+				            <form role="form" method="POST" action="{{ url('skills') }}">
+				            	{{ csrf_field() }}
+					            <div class="modal-body">
+					            	<div class="form-group fg-line">
+					                    <input type="text" name="name" class="form-control input-sm" id="inputName" placeholder="Name" required>
+					                </div>    
+					            </div>
+					            
+					            <div class="modal-footer">
+					                <button type="submit" class="btn btn-danger"> Save </button>
+					                <button type="submit" class="btn btn-default" data-dismiss="modal"> Cancel </button>
+					            </div>
+				            </form>
+
+				        </div>
+				    </div>
+				</div>
+
+			</div>
+		</div>
+
 	    <div class="container">
-	        
 	        <div class="card">
 	            <div class="card-header">
-	                <h2>Selection Example <small>Ensure that the data attribute [data-identifier="true"] is set on one column header.</small></h2>
+	                <h2>Skills</h2> <small>Employee skills.</small>
 	            </div>
 	            
-	            <table id="data-table-command" class="table table-striped table-vmiddle">
+	            <div class="table-responsive">
+	            <table id="data-table-basic" class="table table-striped">
 	                <thead>
 	                    <tr>
-	                        <th data-column-id="id" data-type="numeric">ID</th>
-	                        <th data-column-id="sender">Sender</th>
-	                        <th data-column-id="received" data-order="desc">Received</th>
-	                        <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+	                        <th data-column-id="id" data-type="numeric"> ID </th>
+	                        <th data-column-id="name"> Name </th>
 	                    </tr>
 	                </thead>
 	                <tbody>
+	                	@foreach ($skills as $skill)
 	                    <tr>
-	                        <td>10238</td>
-	                        <td>eduardo@pingpong.com</td>
-	                        <td>14.10.2013</td>
+	                        <td> {{$skill -> id}} </td>
+	                        <td> {{$skill -> name}} </td>
 	                    </tr>
-	                    <tr>
-	                        <td>10243</td>
-	                        <td>eduardo@pingpong.com</td>
-	                        <td>19.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10248</td>
-	                        <td>eduardo@pingpong.com</td>
-	                        <td>24.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10253</td>
-	                        <td>eduardo@pingpong.com</td>
-	                        <td>29.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10234</td>
-	                        <td>lila@google.com</td>
-	                        <td>10.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10239</td>
-	                        <td>lila@google.com</td>
-	                        <td>15.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10244</td>
-	                        <td>lila@google.com</td>
-	                        <td>20.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10249</td>
-	                        <td>lila@google.com</td>
-	                        <td>25.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10237</td>
-	                        <td>robert@bingo.com</td>
-	                        <td>13.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10242</td>
-	                        <td>robert@bingo.com</td>
-	                        <td>18.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10247</td>
-	                        <td>robert@bingo.com</td>
-	                        <td>23.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10252</td>
-	                        <td>robert@bingo.com</td>
-	                        <td>28.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10236</td>
-	                        <td>simon@yahoo.com</td>
-	                        <td>12.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10241</td>
-	                        <td>simon@yahoo.com</td>
-	                        <td>17.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10246</td>
-	                        <td>simon@yahoo.com</td>
-	                        <td>22.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10251</td>
-	                        <td>simon@yahoo.com</td>
-	                        <td>27.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10235</td>
-	                        <td>tim@microsoft.com</td>
-	                        <td>11.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10240</td>
-	                        <td>tim@microsoft.com</td>
-	                        <td>16.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10245</td>
-	                        <td>tim@microsoft.com</td>
-	                        <td>21.10.2013</td>
-	                    </tr>
-	                    <tr>
-	                        <td>10250</td>
-	                        <td>tim@microsoft.com</td>
-	                        <td>26.10.2013</td>
-	                    </tr>
+	                    @endforeach
 	                </tbody>
 	            </table>
+	            </div>
 	        </div>
-
 	    </div>
+
 	</section>
 
 @endsection

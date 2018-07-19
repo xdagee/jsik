@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jsik | login</title>
     <!-- Vendor CSS -->
-    <link href="vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
-    <link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/material-design-iconic-font.min.css" rel="stylesheet">
     <!-- CSS -->
-    <link href="css/app.min.css" rel="stylesheet">
+    <link href="css/app.min.1.css" rel="stylesheet">
+    <link href="css/app.min.2.css" rel="stylesheet">
+
 </head>
 
 <body class="login-content">
@@ -147,13 +149,14 @@
 
     </form>
     <!-- Javascript Libraries -->
-    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src=js/waves.min.js"></script>
     <!-- Placeholder for IE9 -->
     <!--[if IE 9 ]>
             <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
         <![endif]-->
     <script src="js/functions.js"></script>
 </body>
+
 </html>

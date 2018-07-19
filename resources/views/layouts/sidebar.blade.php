@@ -14,7 +14,7 @@
             </a>
             <ul class="main-menu">
                 <li>
-                    <a href="#"><i class="zmdi zmdi-account"></i> Profile </a>
+                    <a href="{{ url ('profile') }}"><i class="zmdi zmdi-account"></i> Profile </a>
                 </li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -31,6 +31,8 @@
         <ul class="main-menu">
             <li><a href="{{ url ('dashboard') }}"><i class="zmdi zmdi-home"></i> Dashboard </a></li>
             <li><a href="{{ url ('skills') }}"><i class="zmdi zmdi-trending-up"></i> Skills </a></li>
+            <li><a href="{{ url ('employees') }}"><i class="zmdi zmdi-accounts-alt"></i> Employees </a></li>
+            <li><a href="{{ url ('calendar') }}"><i class="zmdi zmdi-calendar"></i> Calendar </a></li>
         </ul>
     </div>
 </aside>
