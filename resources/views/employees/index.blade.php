@@ -6,6 +6,13 @@
 		<div class="container">
 			<div class="card">
 				<div class="card-header pull-right">
+					@include('flash::message')
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="card">
+				<div class="card-header pull-right">
 					<a data-toggle="modal" href="#addEmployee" class="btn btn-primary">Add Employee</a>
 				</div>
 
@@ -46,8 +53,29 @@
 					            	        <div class="input-group">
 					            	        	<span class="input-group-addon"><i class="zmdi zmdi-face"></i></span>
 					            	        	<div class="col-sm-4">
-					            	                <div class="fg-line">    
-					            	                    <input radio="text" class="form-control" name="gender" placeholder="Gender">
+					            	                <div class="fg-line">
+					            	                    <label>
+					            	                        <i class="input-helper"></i>  
+					            	                        Gender
+					            	                    </label>
+					            	                </div>
+					            	            </div>
+					            	        	<div class="col-sm-4">
+					            	                <div class="fg-line">
+					            	                    <label class="radio radio-inline m-r-20">
+					            	                        <input type="radio" name="gender" value="0">
+					            	                        <i class="input-helper"></i>  
+					            	                        Female
+					            	                    </label>
+					            	                </div>
+					            	            </div>
+					            	            <div class="col-sm-4">
+					            	                <div class="fg-line">
+					            	                    <label class="radio radio-inline m-r-20">
+					            	                        <input type="radio" name="gender" value="1">
+					            	                        <i class="input-helper"></i>  
+					            	                        Male
+					            	                    </label>
 					            	                </div>
 					            	            </div>
 					            	        </div>
@@ -59,7 +87,7 @@
 					            	        	<span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
 					            	        	<div class="col-sm-6">
 					            	                <div class="fg-line">    
-					            	                    <input type="text" class="form-control date-picker" name="dob" placeholder="Date of Birth">
+					            	                    <input type="text" class="form-control date-picker" id="dob" name="dob" placeholder="Date of Birth">
 					            	                </div>
 					            	            </div>
 					            	        
@@ -166,7 +194,7 @@
 	            	<table id="data-table-command" class="table table-striped table-vmiddle">
 	                <thead>
 	                    <tr>
-	                    	<th data-column-id="id" data-type="numeric"> ID </th>
+	                    	{{-- <th data-column-id="id" data-type="numeric"> ID </th> --}}
 	                    	<th data-column-id="firstname" data-type="text"> Firstname </th>
 	                    	<th data-column-id="lastname" data-type="text"> Lastname </th>
 	                    	<th data-column-id="residence" data-type="text"> Residence </th>
@@ -174,6 +202,7 @@
 	                    	{{-- <th data-column-id="age" data-type="numeric"> Age </th> --}}
 	                        {{-- <th data-column-id="gender" data-type="text"> Gender </th> --}}
 	                        {{-- <th data-column-id="employee_speciality" data-type="text"> Speciality </th> --}}
+	                        {{-- <th data-colum-id="speciality"> Skills </th> --}}
 	                        <th data-column-id="years_of_experience" data-type="text"> Experience (Years) </th>
 	                        
 	                        <th data-column-id="educational_level" data-type="text"> Educational level </th>
@@ -185,10 +214,11 @@
 	                <tbody>
 	                	@foreach ($employees as $employee)
 	                    <tr>
-	                        <td> {{$employee -> id}} </td>
+	                        {{-- <td> {{$employee -> id}} </td> --}}
 	                        <td> {{$employee -> firstname}} </td>
 	                        <td> {{$employee -> lastname}} </td>
 	                        <td> {{$employee -> residence()->pluck('name')->implode(' ')}} </td>
+	                        {{-- <td> {{$employee -> speciality()->pluck('name')->implode(' ')}} </td> --}}
 	                        {{-- <td> {{$employee -> age }} </td> --}}
 	                        {{-- <td> {{$employee -> gender }} </td> --}}
 	                        {{-- <td> {{$employee -> speciality()->pluck('name')->implode(' ')}} </td> --}}

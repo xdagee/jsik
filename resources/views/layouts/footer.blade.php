@@ -45,27 +45,45 @@
             </div>   
         <![endif]-->
     <!-- Javascript Libraries -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-    <script src="js/moment.min.js"></script>
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
-    <script src="js/bootstrap-select.js"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-select.js') }}"></script>
 
-    <script src="js/fullcalendar.min.js"></script>
+    <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
     
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/waves.min.js"></script>
-    <script src="js/bootstrap-growl.min.js"></script>
-    <script src="js/sweet-alert.min.js"></script>
+    <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('js/waves.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-growl.min.js') }}"></script>
+    <script src="{{ asset('js/sweet-alert.min.js') }}"></script>
 
-    <script src="js/jquery.bootgrid.min.js"></script>
+    <script src="{{ asset('js/jquery.bootgrid.min.js') }}"></script>
     
     <!-- Placeholder for IE9 -->
     <!--[if IE 9 ]>
-            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+            <script src="js/jquery.placeholder.min.js"></script>
         <![endif]-->
-    <script src="js/functions.js"></script>
+    <script src="{{ asset('js/functions.js') }}"></script>
+    
+    <!-- flash message -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#flash-overlay-modal').modal();
+            $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+        });
+    </script>
+
+    <!-- dob datetimepicker -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dob').datetimepicker({
+              format: "yyyy-mm-dd",
+              autoclose: true
+            });
+        });
+    </script>
 
     <!-- Data Table -->
     <script type="text/javascript">
@@ -100,6 +118,7 @@
         });
     </script>
 
+    <!-- calendar -->
     <script type="text/javascript">
         $(document).ready(function() {
             var date = new Date();
@@ -107,7 +126,7 @@
             var m = date.getMonth();
             var y = date.getFullYear();
 
-            var cId = $('#calendar'); //Change the name if you want. I'm also using thsi add button for more actions
+            var cId = $('#calendar'); //Change the name if you want. I'm also using this add button for more actions
 
             //Generate the Calendar
             cId.fullCalendar({

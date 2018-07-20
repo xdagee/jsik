@@ -34,7 +34,7 @@ class EmployeesController extends Controller
     public function index()
     {
         //
-        $employees = Employee::get();
+        $employees = Employee::latest()->get();
         // json
         // return $employees;
         // view
@@ -75,8 +75,6 @@ class EmployeesController extends Controller
 
         ]);
 
-
-        //Carbon::parse($request['dob'])->toDateString(),
         $employee = Employee::create([
             'firstname' => request('firstname'), // typed
             'lastname' => request('lastname'), // typed
@@ -90,9 +88,9 @@ class EmployeesController extends Controller
             'education_level_id' => request('education_level_id') // selection from db
         ]);
 
-        //
-        return redirect()->route('employees.index')
-        ->with('flash_message', 'Employee,'.$employee->lastname.' added successfully');
+        // flash message after a successfully
+        flash('Employee, '.$employee->firstname.' was added successfully!')->success();
+        return redirect()->route('employees.index');
     }
 
     /**

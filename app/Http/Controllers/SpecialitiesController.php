@@ -26,7 +26,7 @@ class SpecialitiesController extends Controller
         public function index()
         {
             //
-            $skills = Speciality::get();
+            $skills = Speciality::latest()->get();
             // json
             // return $skills;
             // view
@@ -62,7 +62,9 @@ class SpecialitiesController extends Controller
                 'name' => request('name')
             ]);
 
-            return redirect()->route('skills.index')->with('flash_message','Skill,'. $skill->name.' added sucessfully');
+            // flash message after a successfully
+            flash('Skill, '.$skill->name.' was added successfully!')->success();
+            return redirect()->route('skills.index');
         }
 
         /**
@@ -113,7 +115,12 @@ class SpecialitiesController extends Controller
             $skill -> name = $request -> input('name');
             $skill -> save();
 
-            return redirect()->route('skills.show', $skill->id)->with('flash_message','Skill, '. $skill->name.' updated successfully');
+            // return redirect()->route('skills.show', $skill->id)->with('flash_message','Skill, '. $skill->name.' updated successfully');
+            // flash message after a successfully
+            
+            return redirect()->route('skills.show', $skill->id)->flash('Skill, '.$skill->name.' was updated successfully!')->success();
+
+                
         }
 
         /**
@@ -128,6 +135,6 @@ class SpecialitiesController extends Controller
             $skill = Speciality::findOrFail($id);
             $skill -> delete();
 
-            return redirect()->route('skills.index')->with('flash_message','Skill deleted successfully');
+            return redirect()->route('skills.index')->flash('skill deleted successfully!')->success();
         }
 }

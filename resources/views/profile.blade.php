@@ -7,7 +7,7 @@
 
             <div class="block-header">
                 <h3>{{ Auth::user()->name }}</h3>
-                <small>Web/UI Developer, Dubai, United Arab Emirates</small>
+                <small>Systems Analyst Dubai, United Arab Emirates</small>
             </div>
             
             <div class="card" id="profile-main">

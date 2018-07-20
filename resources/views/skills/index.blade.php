@@ -6,6 +6,13 @@
 		<div class="container">
 			<div class="card">
 				<div class="card-header pull-right">
+					@include('flash::message')
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="card">
+				<div class="card-header pull-right">
 					<a data-toggle="modal" href="#addSkill" class="btn btn-primary">Add Skill</a>
 				</div>
 
@@ -63,7 +70,6 @@
 	            </div>
 	        </div>
 	    </div>
-
 	</section>
 
 @endsection

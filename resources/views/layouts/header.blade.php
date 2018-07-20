@@ -5,24 +5,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> jsik </title>
+    
+    <title>{{ config('app.name', 'jsik') }}</title>
     
     <!-- Vendor CSS -->
-    <link href="css/jquery.bootgrid.min.css" rel="stylesheet">
-    <link href="css/fullcalendar.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/sweet-alert.css" rel="stylesheet">
-    <link href="css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="{{ asset('css/jquery.bootgrid.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fullcalendar.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sweet-alert.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/material-design-iconic-font.min.css') }}" rel="stylesheet">
 
-    <link href="css/bootstrap-select.css" rel="stylesheet">
-    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-select.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
 
     <!-- CSS -->
-    <link href="css/app.min.1.css" rel="stylesheet">
-    <link href="css/app.min.2.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/app.min.1.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.min.2.css') }}" rel="stylesheet">
 </head>
 
 <body>
