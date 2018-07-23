@@ -71,7 +71,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#flash-overlay-modal').modal();
-            $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+            $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
         });
     </script>
 

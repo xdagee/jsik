@@ -134,6 +134,7 @@
 					            	                    <select class="selectpicker" name="residence_id" required>
 					            	                    	<option value="" selected> Residence </option>
 					            	                        <option value="200">Adabraka</option>
+					            	                        <option value="201">Carprise</option>
 					            	                        <option value="202">Alajo</option>
 					            	                        <option value="203">Kotobabi</option>
 					            	                    </select>

@@ -10,6 +10,13 @@
 				</div>
 			</div>
 		</div>
+
+		{{-- <div class="container">
+		    <div class="card-body card-padding">
+		        <div class="alert alert-success" role="alert">@include('flash::message')</div>
+		    </div>
+		</div> --}}
+
 		<div class="container">
 			<div class="card">
 				<div class="card-header pull-right">
