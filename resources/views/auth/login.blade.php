@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jsik | login</title>
+    <title> jsik </title>
     <!-- Vendor CSS -->
     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/material-design-iconic-font.min.css') }}" rel="stylesheet">
@@ -153,9 +153,9 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/waves.min.js') }}"></script>
     <!-- Placeholder for IE9 -->
-    <!--[if IE 9 ]>
-            <script src="{{ asset('js/jquery.placeholder.min.js') }}"></script>
-        <![endif]-->
+    {{-- [if IE 9 ]> 
+        <script src="{{ asset('js/jquery.placeholder.min.js') }}"></script>
+    [endif] --}}
     <script src="{{ asset('js/functions.js') }}"></script>
 </body>
 

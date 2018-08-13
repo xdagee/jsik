@@ -17,16 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 Route::resource('dashboard', 'DashboardController');
 
-Route::get('/profile', function () {
+Route::get('profile', function () {
 	return view('profile');
 });
 
 
 // skills routing...
-Route::get('/skills', 'SpecialitiesController@index');
+Route::get('skills', 'SpecialitiesController@index');
 Route::resource('skills', 'SpecialitiesController');
 
 // Route::get('skills/create','SpecialitiesController@create');
@@ -34,7 +34,7 @@ Route::resource('skills', 'SpecialitiesController');
 // Route::get('skills/{skill}', 'SpecialitiesController@show');
 
 // employees routing...
-Route::get('/employees', 'EmployeesController@index');
+Route::get('employees', 'EmployeesController@index');
 Route::resource('employees', 'EmployeesController');
 
 // Route::get('employees/create', 'EmployeesController@create');
@@ -42,5 +42,5 @@ Route::resource('employees', 'EmployeesController');
 // Route::get('employees/{employee}', 'EmployeesController@show');
 
 // calendar
-Route::get('/calendar','CalendarController@index');
+Route::get('calendar','CalendarController@index');
 Route::resource('calendar', 'CalendarController');

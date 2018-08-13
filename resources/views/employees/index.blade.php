@@ -10,6 +10,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="container">
 			<div class="card">
 				<div class="card-header pull-right">
@@ -27,7 +28,7 @@
 				            	{{ csrf_field() }}
 
 					            <div class="modal-body">
-					            	
+					            			<!-- personal info -->
 					            	        <div class="input-group">
 					            	            <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
 					            	            <div class="col-sm-4">
@@ -48,15 +49,16 @@
 					            	        </div>
 
 					            	        <br>
+					            	        <br>
 
-					            	        <!-- radio -->
+					            	        <!-- sex radio -->
 					            	        <div class="input-group">
 					            	        	<span class="input-group-addon"><i class="zmdi zmdi-face"></i></span>
 					            	        	<div class="col-sm-4">
 					            	                <div class="fg-line">
 					            	                    <label>
 					            	                        <i class="input-helper"></i>  
-					            	                        Gender
+					            	                        Sex
 					            	                    </label>
 					            	                </div>
 					            	            </div>
@@ -81,9 +83,11 @@
 					            	        </div>
 
 					            	        <br>
+					            	        <br>
 
-					            	        <!-- date picker -->
+					            	        <!-- dateofbirth date picker -->
 					            	        <div class="input-group">
+
 					            	        	<span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
 					            	        	<div class="col-sm-6">
 					            	                <div class="fg-line">    
@@ -91,12 +95,12 @@
 					            	                </div>
 					            	            </div>
 					            	        
+					            	        	<!-- pllace of birth dropdow selection from db-->
 					            	        	{{-- <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span> --}}
-					            	            <!-- dropdow selection from db-->
 					            	            <div class="col-sm-6">
 					            	                <div class="fg-line">
 					            	                    <select class="selectpicker" name="place_of_birth_id" required>
-					            	                    	<option value="" selected> Place of Birth </option>
+					            	                    	<option value=""> Place of Birth </option>
 					            	                        <option value="301">Accra</option>
 					            	                        <option value="302">Bolgatanga</option>
 					            	                        <option value="303">Cape Coast</option>
@@ -113,44 +117,76 @@
 					            	        </div>
 
 					            	        <br>
+					            	        <br>
 
-					            	        <!-- number -->
+					            	        <!-- ethnicity dropdown from db -->
 					            	        <div class="input-group">
+
 					            	        	<span class="input-group-addon"><i class="zmdi zmdi-star"></i></span>
 					            	        	<div class="col-sm-6">
 					            	                <div class="fg-line">    
-					            	                    <input type="number" class="form-control" name="years_of_experience" placeholder="Years of Experience">
+					            	                    <select class="selectpicker" name="ethnicity_id" required>
+					            	                    	<option value=""> Ethnicity </option>
+					            	                        <option value="301">Akan</option>
+					            	                        <option value="302">Ewe</option>
+					            	                        <option value="303">Ga</option>
+					            	                    </select>
 					            	                </div>
 					            	            </div>
-					            	        </div>
-
-					            	        <br>
-
-					            	        <!-- dropdown from db -->
-					            	        <div class="input-group">
-					            	            <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span>
+					            	        
+					            	        	<!-- relegion dropdown selection from db-->
+					            	        	{{-- <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span> --}}
 					            	            <div class="col-sm-6">
 					            	                <div class="fg-line">
-					            	                    <select class="selectpicker" name="residence_id" required>
-					            	                    	<option value="" selected> Residence </option>
-					            	                        <option value="200">Adabraka</option>
-					            	                        <option value="201">Carprise</option>
-					            	                        <option value="202">Alajo</option>
-					            	                        <option value="203">Kotobabi</option>
+					            	                    <select class="selectpicker" name="relegion_id" required>
+					            	                    	<option value=""> Relegion </option>
+					            	                        <option value="301">Christian</option>
+					            	                        <option value="302">Isamic</option>
+					            	                        <option value="303">Traditional</option>
 					            	                    </select>
 					            	                </div>
 					            	            </div>
 					            	        </div>
 
 					            	        <br>
+					            	        <br>
+					            	        	<!-- residence dropdown from db -->
+					            	        	<div class="input-group">
+					            	        		<span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span>
+					            	        		<div class="col-sm-6">
+					            	        	        <div class="fg-line">    
+					            	        	            <select class="selectpicker" name="residence_id" required>
+					            	        	            	<option value=""> Current Residence </option>
+					            	        	                <option value="200">Adabraka</option>
+					            	        	                <option value="201">Alajo</option>
+					            	        	                <option value="202">Avenor</option>
+					            	        	                <option value="203">Carprise</option>
+					            	        	                <option value="204">Kotobabi</option>
+					            	        	                <option value="205">New Town</option>
+					            	        	                <option value="206">Nima</option>
+					            	        	            </select>
+					            	        	        </div>
+					            	        	    </div>
+					            	        	
+					            	        		<!-- relegion dropdown selection from db-->
+					            	        		{{-- <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span> --}}
+					            	        	    <div class="col-sm-6">
+					            	        	        <div class="fg-line">
+					            	        	            <input type="number" class="form-control" name="years_of_current_residence" placeholder="Years of Current Residence">
+					            	        	        </div>
+					            	        	    </div>
+					            	        	</div>
 
-					            	        <!-- dropdown from db -->
+					            	        <br>
+					            	        <br>
+
+					            	        <!-- educational level; dropdown from db -->
 					            	        <div class="input-group">
 					            	        	<span class="input-group-addon"><i class="zmdi zmdi-trending-up"></i></span>
 					            	        	<div class="col-sm-6">
 					            	                <div class="fg-line">    
 					            	                    <select class="selectpicker" name="education_level_id" required>
-					            	                    	<option value="" selected>Educational Level</option>
+					            	                    	<option value="">Educational Level</option>
 					            	                        <option value="5">Diploma</option>
 					            	                        <option value="6">Degree</option>
 					            	                        <option value="10">PhD</option>
@@ -160,15 +196,54 @@
 					            	        </div>
 
 					            	        <br>
-					            	        
+					            	        <br>
+
+					            	        <!-- skills; dropdown from db -->
 					            	        <div class="input-group">
+
 					            	        	<span class="input-group-addon"><i class="zmdi zmdi-star"></i></span>
 					            	        	<div class="col-sm-6">
-					            	                <div class="fg-line">    
-					            	                    <input type="text" class="form-control" name="work_place" placeholder="Workplace">
+					            	                <div class="fg-line">
+					            	                    <select class="selectpicker" name="area_of_speciality_id" required>
+					            	                    	<option value=""> Area of Speciality </option>
+					            	                        <option value="301">IT Manager</option>
+					            	                        <option value="302">Sales Manager</option>
+					            	                        <option value="303">Marketing Manager</option>
+					            	                        <option value="304">Trader</option>
+					            	                    </select>
+					            	                </div>
+					            	            </div>
+					            	        
+					            	        	<!-- years of experience; number -->
+					            	        	{{-- <span class="input-group-addon"><i class="zmdi zmdi-star"></i></span> --}}
+					            	            <div class="col-sm-6">
+					            	                <div class="fg-line">
+					            	                	<input type="number" class="form-control" name="years_of_experience" placeholder="Years of Experience">
 					            	                </div>
 					            	            </div>
 					            	        </div>
+
+					            	        <br>
+					            	        <br>
+					            	        
+					            	        <div class="input-group">
+					            	        	<span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span>
+					            	        	<div class="col-sm-6">
+					            	                <div class="fg-line">    
+					            	                    <input type="text" class="form-control" name="work_place" placeholder="Current Workplace">
+					            	                </div>
+					            	            </div>
+
+					            	            {{-- <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span> --}}
+					            	            <div class="col-sm-6">
+					            	                <div class="fg-line">
+					            	                    <input type="number" class="form-control" name="years_of_current_workplace" placeholder="Years of Current Workplace">
+					            	                </div>
+					            	            </div>
+					            	        </div>
+					            	        
+					            	        <br>
+					            	        <br>
 					            </div>
 
 					            <div class="modal-footer">
