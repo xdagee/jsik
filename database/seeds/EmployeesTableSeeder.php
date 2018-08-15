@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class EmployeesTableSeeder extends Seeder
 {
@@ -12,7 +13,10 @@ class EmployeesTableSeeder extends Seeder
     public function run()
     {
         factory(App\Employee::class, 50)->create()->each(function($e){
-        	$e->specialities()->attach(App\Speciality::all()->random()->id);
+            $faker = Faker::create();
+        	$e->specialities()->attach(App\Speciality::all()->random()->id,[
+                'years_of_experience' => $faker->numberBetween($min = 1, $max = 20)
+            ]);
         });
     }
 }

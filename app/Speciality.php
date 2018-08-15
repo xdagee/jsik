@@ -7,7 +7,7 @@ class Speciality extends Model
     //
     public function employees()
 	{
-		return $this->belongsToMany(LeaveType::class, 'employee_specialities')->withTimestamps();
+		return $this->belongsToMany(LeaveType::class, 'employee_specialities')->withPivot('years_of_experience')->withTimestamps();
 	}
 
 	// employee speciality

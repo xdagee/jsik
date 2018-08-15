@@ -22,9 +22,19 @@ class Employee extends Model
     	return $this->belongsTo(EducationLevel::class);
     }
 
+    public function ethnicity()
+    {
+        return $this->belongsTo(Ethnicity::class);
+    }
+
+    public function religion()
+    {
+        return $this->belongsTo(Religion::class);
+    }
+
     public function specialities()
 	{
-		return $this->belongsToMany(Speciality::class, 'employee_specialities')->withTimestamps();
+		return $this->belongsToMany(Speciality::class, 'employee_specialities')->withPivot('years_of_experience')->withTimestamps();
 	}
 
     /**

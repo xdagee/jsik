@@ -17,6 +17,7 @@ class CreateEmployeeSpecialitiesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('employee_id')->nullable(false);
             $table->unsignedInteger('speciality_id')->nullable(false);
+            $table->unsignedInteger('years_of_experience')->nullable(false)->default(0);
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('restrict')->onUpdate('cascade');

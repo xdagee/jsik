@@ -12,13 +12,13 @@ class EducationLevelsTableSeeder extends Seeder
     public function run()
     {
         //
-         $education_levels = [
+        $education_levels = [
 
         	['name'=>'Six Form'],
 
-            ['name'=>'A Level'],
+          ['name'=>'A Level'],
 
-            ['name'=>'JHS'],
+          ['name'=>'JHS'],
 
         	['name'=>'SHS'],
 

@@ -75,10 +75,13 @@ $factory->define(App\Employee::class, function (Faker $faker) {
         	'othername'				=>	null,
         	'dob'					=>	$dob,
         	'gender'				=>	$gender,
-        	'years_of_experience'	=>	$faker->numberBetween($min = 1, $max = 20),
+        	'years_at_workplace'	=>	$faker->numberBetween($min = 1, $max = 20),
         	'work_place'			=> 	$faker->company,
+            'years_at_residence'    =>  $faker->numberBetween($min = 1, $max = 20),
         	'residence_id'			=>	App\Residence::all()->random()->id,
             'place_of_birth_id'    	=>  App\PlaceOfBirth::all()->random()->id,
-            'education_level_id'    =>  App\EducationLevel::all()->random()->id
+            'education_level_id'    =>  App\EducationLevel::all()->random()->id,
+            'religion_id'           =>  App\Religion::all()->random()->id,
+            'ethnicity_id'          =>  App\Ethnicity::all()->random()->id
     ];
 });
