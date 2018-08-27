@@ -14,9 +14,9 @@ class ReligionsTableSeeder extends Seeder
         //
         $religions = [
 
-        	['name'=>'Christian'],
+        	['name'=>'Christianity'],
 
-          	['name'=>'Islam'],
+          	['name'=>'Islamic'],
 
           	['name'=>'Traditionalist']
 

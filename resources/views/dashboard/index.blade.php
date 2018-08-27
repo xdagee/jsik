@@ -1,19 +1,9 @@
 @extends('layouts.master')
 
+@section('title', 'dashboard')
+
 @section('content')
     <section id="content">
-        {{-- @include('flash::message') --}}
-        {{-- @include('flash::message')
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-body">
-                        <p>Welcome to jsik | where you find the skill you need.</p>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
         <div class="container">
             <div class="card">
                 <div class="card-header">

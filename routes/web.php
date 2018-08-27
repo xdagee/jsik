@@ -25,22 +25,14 @@ Route::get('profile', function () {
 });
 
 
-// skills routing...
-Route::get('skills', 'SpecialitiesController@index');
+// skills
+Route::get('skills', 'SpecialitiesController@index')->name('skills');
 Route::resource('skills', 'SpecialitiesController');
 
-// Route::get('skills/create','SpecialitiesController@create');
-// Route::post('skills', 'SpecialitiesController@store');
-// Route::get('skills/{skill}', 'SpecialitiesController@show');
-
-// employees routing...
-Route::get('employees', 'EmployeesController@index');
+// employees
+Route::get('employees', 'EmployeesController@index')->name('employees');
 Route::resource('employees', 'EmployeesController');
 
-// Route::get('employees/create', 'EmployeesController@create');
-// Route::post('employees', 'EmployeesController@store');
-// Route::get('employees/{employee}', 'EmployeesController@show');
-
 // calendar
-Route::get('calendar','CalendarController@index');
+Route::get('calendar','CalendarController@index')->name('calendar');
 Route::resource('calendar', 'CalendarController');

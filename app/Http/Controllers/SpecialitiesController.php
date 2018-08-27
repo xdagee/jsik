@@ -34,17 +34,6 @@ class SpecialitiesController extends Controller
         }
 
         /**
-         * Show the form for creating a new resource.
-         *
-         * @return \Illuminate\Http\Response
-         */
-        // public function create()
-        // {
-        //     //
-        //     return view('skills.create');
-        // }
-
-        /**
          * Store a newly created resource in storage.
          *
          * @param  \Illuminate\Http\Request  $request
@@ -62,7 +51,7 @@ class SpecialitiesController extends Controller
                 'name' => request('name')
             ]);
 
-            // flash message after a successfully
+            // flash message after a successful insertion
             flash('Skill, '.$skill->name.' was added successfully!')->success();
             return redirect()->route('skills.index');
         }

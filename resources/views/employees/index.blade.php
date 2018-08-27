@@ -1,12 +1,24 @@
 @extends('layouts.master')
 
+@section('title', 'employees')
+
+@section('cssscript')
+	<!-- page dependent script -->
+	<link href="{{ asset('css/bootstrap-select.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+</head>
+@endsection
+
 @section('content')
 
 	<section id="content">
 		<div class="container">
 			<div class="card">
 				<div class="card-header pull-right">
-					@include('flash::message')
+					<h3>
+						{{-- sample flash message --}}
+						@include('flash::message')
+					</h3>
 				</div>
 			</div>
 		</div>
@@ -26,7 +38,6 @@
 
 				            <form role="form" method="POST" action="{{ url('employees') }}">
 				            	{{ csrf_field() }}
-
 					            <div class="modal-body">
 					            			<!-- personal info -->
 					            	        <div class="input-group">
@@ -100,17 +111,9 @@
 					            	            <div class="col-sm-6">
 					            	                <div class="fg-line">
 					            	                    <select class="selectpicker" name="place_of_birth_id" required>
-					            	                    	<option value=""> Place of Birth </option>
-					            	                        <option value="301">Accra</option>
-					            	                        <option value="302">Bolgatanga</option>
-					            	                        <option value="303">Cape Coast</option>
-					            	                        <option value="304">Ho</option>
-					            	                        <option value="305">Koforidua</option>
-					            	                        <option value="306">Kumasi</option>
-					            	                        <option value="307">Sekondi-Takoradi</option>
-					            	                        <option value="308">Sunyani</option>
-					            	                        <option value="309">Tamale</option>
-					            	                        <option value="310">Wa</option>
+					            	                    	@foreach ($placeofbirths as $placeofbirth)
+					            	                    		<option value="{{$placeofbirth->id}}"> {{$placeofbirth->name}} </option>
+					            	                    	@endforeach
 					            	                    </select>
 					            	                </div>
 					            	            </div>
@@ -126,23 +129,21 @@
 					            	        	<div class="col-sm-6">
 					            	                <div class="fg-line">    
 					            	                    <select class="selectpicker" name="ethnicity_id" required>
-					            	                    	<option value=""> Ethnicity </option>
-					            	                        <option value="301">Akan</option>
-					            	                        <option value="302">Ewe</option>
-					            	                        <option value="303">Ga</option>
+					            	                    	@foreach ($ethnicities as $ethnicity)
+					            	                    		<option value="{{$ethnicity->id}}"> {{$ethnicity->name}} </option>
+					            	                    	@endforeach
 					            	                    </select>
 					            	                </div>
 					            	            </div>
 					            	        
-					            	        	<!-- relegion dropdown selection from db-->
+					            	        	<!-- religion dropdown selection from db-->
 					            	        	{{-- <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span> --}}
 					            	            <div class="col-sm-6">
 					            	                <div class="fg-line">
-					            	                    <select class="selectpicker" name="relegion_id" required>
-					            	                    	<option value=""> Relegion </option>
-					            	                        <option value="301">Christian</option>
-					            	                        <option value="302">Isamic</option>
-					            	                        <option value="303">Traditional</option>
+					            	                    <select class="selectpicker" name="religion_id" required>
+					            	                    	@foreach ($religions as $religion)
+					            	                    		<option value="{{$religion->id}}"> {{$religion->name}} </option>
+					            	                    	@endforeach
 					            	                    </select>
 					            	                </div>
 					            	            </div>
@@ -156,23 +157,18 @@
 					            	        		<div class="col-sm-6">
 					            	        	        <div class="fg-line">    
 					            	        	            <select class="selectpicker" name="residence_id" required>
-					            	        	            	<option value=""> Current Residence </option>
-					            	        	                <option value="200">Adabraka</option>
-					            	        	                <option value="201">Alajo</option>
-					            	        	                <option value="202">Avenor</option>
-					            	        	                <option value="203">Carprise</option>
-					            	        	                <option value="204">Kotobabi</option>
-					            	        	                <option value="205">New Town</option>
-					            	        	                <option value="206">Nima</option>
+					            	        	            	@foreach ($residences as $residence)
+					            	        	            		<option value="{{$residence->id}}"> {{$residence->name}} </option>
+					            	        	            	@endforeach
 					            	        	            </select>
 					            	        	        </div>
 					            	        	    </div>
 					            	        	
-					            	        		<!-- relegion dropdown selection from db-->
+					            	        		<!-- years at current residence -->
 					            	        		{{-- <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span> --}}
 					            	        	    <div class="col-sm-6">
 					            	        	        <div class="fg-line">
-					            	        	            <input type="number" class="form-control" name="years_of_current_residence" placeholder="Years of Current Residence">
+					            	        	            <input type="number" class="form-control" name="years_at_residence" placeholder="Years at Current Residence">
 					            	        	        </div>
 					            	        	    </div>
 					            	        	</div>
@@ -186,10 +182,9 @@
 					            	        	<div class="col-sm-6">
 					            	                <div class="fg-line">    
 					            	                    <select class="selectpicker" name="education_level_id" required>
-					            	                    	<option value="">Educational Level</option>
-					            	                        <option value="5">Diploma</option>
-					            	                        <option value="6">Degree</option>
-					            	                        <option value="10">PhD</option>
+					            	                    	@foreach ($educationallevels as $educationallevel)
+					            	                    		<option value="{{$educationallevel->id}}"> {{$educationallevel->name}} </option>
+					            	                    	@endforeach
 					            	                    </select>
 					            	                </div>
 					            	            </div>
@@ -205,20 +200,10 @@
 					            	        	<div class="col-sm-6">
 					            	                <div class="fg-line">
 					            	                    <select class="selectpicker" name="area_of_speciality_id" required>
-					            	                    	<option value=""> Area of Speciality </option>
-					            	                        <option value="301">IT Manager</option>
-					            	                        <option value="302">Sales Manager</option>
-					            	                        <option value="303">Marketing Manager</option>
-					            	                        <option value="304">Trader</option>
+					            	                    	@foreach ($specialities as $speciality)
+					            	                    		<option value="{{$speciality->id}}"> {{$speciality->name}} </option>
+					            	                        @endforeach
 					            	                    </select>
-					            	                </div>
-					            	            </div>
-					            	        
-					            	        	<!-- years of experience; number -->
-					            	        	{{-- <span class="input-group-addon"><i class="zmdi zmdi-star"></i></span> --}}
-					            	            <div class="col-sm-6">
-					            	                <div class="fg-line">
-					            	                	<input type="number" class="form-control" name="years_of_experience" placeholder="Years of Experience">
 					            	                </div>
 					            	            </div>
 					            	        </div>
@@ -237,7 +222,7 @@
 					            	            {{-- <span class="input-group-addon"><i class="zmdi zmdi-pin"></i></span> --}}
 					            	            <div class="col-sm-6">
 					            	                <div class="fg-line">
-					            	                    <input type="number" class="form-control" name="years_of_current_workplace" placeholder="Years of Current Workplace">
+					            	                    <input type="number" class="form-control" name="years_at_workplace" placeholder="Years at Current Workplace">
 					            	                </div>
 					            	            </div>
 					            	        </div>
@@ -263,26 +248,27 @@
 	        
 	        <div class="card">
 	            <div class="card-header">
-	                <h2>Employees</h2> <small>List of employees and their area of specialitities with experience.</small>
+	                <h2>Employees</h2> <small>List of employees and their area of specialities with experience.</small>
 	            </div>
 	            
 	            <div class="table-responsive">
-	            	<table id="data-table-command" class="table table-striped table-vmiddle">
+	            	<table id="employees_datatable" class="table table-striped table-vmiddle">
 	                <thead>
 	                    <tr>
 	                    	{{-- <th data-column-id="id" data-type="numeric"> ID </th> --}}
 	                    	<th data-column-id="firstname" data-type="text"> Firstname </th>
 	                    	<th data-column-id="lastname" data-type="text"> Lastname </th>
-	                    	<th data-column-id="residence" data-type="text"> Residence </th>
-	                    	{{-- <th data-column-id="speciality" data-type="text">Speciality</th> --}}
-	                    	{{-- <th data-column-id="age" data-type="numeric"> Age </th> --}}
+	                    	<th data-column-id="age" data-type="numeric"> Age </th>
 	                        {{-- <th data-column-id="gender" data-type="text"> Gender </th> --}}
-	                        {{-- <th data-column-id="employee_speciality" data-type="text"> Speciality </th> --}}
-	                        {{-- <th data-colum-id="speciality"> Skills </th> --}}
-	                        <th data-column-id="years_of_experience" data-type="text"> Experience (Years) </th>
-	                        
-	                        <th data-column-id="educational_level" data-type="text"> Educational level </th>
+	                        <th data-column-id="speciality" data-type="text"> Area of Speciality </th>
+	                        <th data-column-id="years_at_workplace" data-type="numeric"> Work Experience </th>
 	                        <th data-colum-id="work_place" data-type="text"> Workplace </th>
+	                        {{-- <th data-colum-id="years_at_residence" data-type="text"> Years Res. </th> --}}
+	                        {{-- <th data-colum-id="residence" data-type="text"> Residence </th> --}}
+	                        {{-- <th data-colum-id="place_of_birth" data-type="text"> Place of birth </th> --}}
+	                        <th data-column-id="educational_level" data-type="text"> Educational level </th>
+	                        {{-- <th data-colum-id="religion" data-type="text"> Religion </th> --}}
+	                        {{-- <th data-colum-id="ethnicity" data-type="text"> Ethnicity </th> --}}
 
 	                        {{-- <th data-column-id="commands" data-formatter="commands" data-sortable="false"> Actions </th> --}}
 	                    </tr>
@@ -293,15 +279,18 @@
 	                        {{-- <td> {{$employee -> id}} </td> --}}
 	                        <td> {{$employee -> firstname}} </td>
 	                        <td> {{$employee -> lastname}} </td>
-	                        <td> {{$employee -> residence()->pluck('name')->implode(' ')}} </td>
-	                        {{-- <td> {{$employee -> speciality()->pluck('name')->implode(' ')}} </td> --}}
-	                        {{-- <td> {{$employee -> age }} </td> --}}
+	                        <td> {{$employee -> age }} </td>
 	                        {{-- <td> {{$employee -> gender }} </td> --}}
-	                        {{-- <td> {{$employee -> speciality()->pluck('name')->implode(' ')}} </td> --}}
-	                        <td> {{$employee -> years_of_experience}} </td>
-	                        
-	                        <td> {{$employee -> educationlevel()->pluck('name')->implode(' ')}} </td>
+	                        <td> {{$employee -> specialities()->pluck('name')->implode(' ')}} </td>
+	                        <td> {{$employee -> years_at_workplace}} </td>
 	                        <td> {{$employee -> work_place}} </td>
+	                        {{-- <td> {{$employee -> years_at_residence}} </td> --}}
+	                        {{-- <td> {{$employee -> residence_id}} </td> --}}
+	                        {{-- <td> {{$employee -> place_of_birth_id}} </td> --}}
+	                        <td> {{$employee -> educationlevel()->pluck('name')->implode(' ')}} </td>
+	                        {{-- <td> {{$employee -> religion_id}} </td> --}}
+	                        {{-- <td> {{$employee -> ethnicity_id}} </td> --}}
+	                        {{-- <td> {{$employee -> work_place}} </td> --}}
 
 	                    </tr>
 	                    @endforeach
@@ -313,4 +302,43 @@
 	    </div>
 	</section>
 
+@endsection
+
+@section('jsscript')
+
+	<script src="{{ asset('js/moment.min.js') }}"></script>
+	<script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+	<script src="{{ asset('js/bootstrap-select.js') }}"></script>
+
+	<!-- dob datetimepicker -->
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        $('#dob').datetimepicker({
+	          format: "yyyy-mm-dd",
+	          autoclose: true
+	        });
+	    });
+	</script>
+
+	<!-- Data Table -->
+	<script type="text/javascript">
+	    $(document).ready(function(){            
+	        // Command Buttons
+	        $("#employees_datatable").bootgrid({
+	            css: {
+	                icon: 'zmdi icon',
+	                iconColumns: 'zmdi-view-module',
+	                iconDown: 'zmdi-expand-more',
+	                iconRefresh: 'zmdi-refresh',
+	                iconUp: 'zmdi-expand-less'
+	            },
+	            formatters: {
+	                "commands": function(column, row) {
+	                    return "<button type=\"button\" class=\"btn btn-icon command-edit\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-edit\"></span></button> " + 
+	                        "<button type=\"button\" class=\"btn btn-icon command-delete\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-delete\"></span></button>";
+	                }
+	            }
+	        });
+	    });
+	</script>
 @endsection

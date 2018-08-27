@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 
-use App\Employee;
-use App\EmployeeSpeciality;
 use App\EducationLevel;
+use App\Employee;
+use App\Ethnicity;
 use App\PlaceOfBirth;
 use App\Residence;
+use App\Religion;
 use App\Speciality;
+
 
 class EmployeesController extends Controller
 {
@@ -35,23 +37,18 @@ class EmployeesController extends Controller
     {
         //
         $employees = Employee::latest()->get();
+        $placeofbirths = PlaceOfBirth::all();
+        $ethnicities = Ethnicity::all();
+        $religions = Religion::all();
+        $residences = Residence::all();
+        $educationallevels = EducationLevel::all();
+        $specialities = Speciality::all();
         // json
         // return $employees;
         // view
-        return view ('employees.index', compact('employees'));
+        return view ('employees.index', compact('employees','placeofbirths','ethnicities','religions','residences','educationallevels','specialities'));
 
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function create()
-    // {
-    //     //
-    //     return view('employees.create');
-    // }
 
     /**
      * Store a newly created resource in storage.
@@ -67,12 +64,15 @@ class EmployeesController extends Controller
             'lastname' => 'required',
             'dob' => 'required',
             'gender' => 'required',
-            'years_of_experience' => 'required',
+            'years_at_workplace' => 'required',
             'work_place' => 'required',
+            'years_at_residence' => 'required',
             'residence_id' => 'required',
             'place_of_birth_id' => 'required',
-            'education_level_id' => 'required'
-
+            'education_level_id' => 'required',
+            'religion_id' => 'required',
+            'ethnicity_id' => 'required'
+            // 'area_of_speciality_id' => 'required'
         ]);
 
         $employee = Employee::create([
@@ -81,32 +81,20 @@ class EmployeesController extends Controller
             'othername' => request('othername'), // typed optional
             'dob' => Carbon::parse(request('dob'))->toDateString(), // picked date ('yyy-mm-dd')
             'gender' => request('gender'), // choosen radio button
-            'years_of_experience' => request('years_of_experience'), // typed
-            'work_place' => request('work_place'), //typed
-            'residence_id' => request('residence_id'), // selection from db
-            'place_of_birth_id' => request('place_of_birth_id'), // selection from db
-            'education_level_id' => request('education_level_id') // selection from db
+            'years_at_workplace' => request('years_at_workplace'), // typed
+            'work_place' => request('work_place'), // selection from db
+            'years_at_residence' => request('years_at_residence'), // selected fron db
+            'residence_id' => request('residence_id'), // selected from db
+            'place_of_birth_id' => request('place_of_birth_id'), // selected from db
+            'education_level_id' => request('education_level_id'), // typed
+            'religion_id' => request('religion_id'),
+            'ethnicity_id' => request('ethnicity_id')
+            // 'area_of_speciality_id' => request('area_of_speciality_id'), // selected from db
         ]);
 
-        // flash message after a successfully
+        // flash message after a successful insertion
         flash('Employee, '.$employee->firstname.' was added successfully!')->success();
         return redirect()->route('employees.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-        $employee = Employee::findOrFail($id);
-        // json
-        return $employee;
-        // view
-        // return view('employees.show', compact('employee'));
     }
 
 }

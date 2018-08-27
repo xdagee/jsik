@@ -5,7 +5,7 @@
         <div class="profile-menu">
             <a href="#">
                 <div class="profile-pic">
-                    <img src="img/profile-pics/4.jpg" alt="img-profile-pic">
+                    <img src="{{asset('img/profile-pics/4.jpg')}}" alt="img-profile-pic">
                 </div>
                 <div class="profile-info">
                     {{ Auth::user()->name }}
@@ -29,10 +29,18 @@
             </ul>
         </div>
         <ul class="main-menu">
-            <li><a href="{{ url ('dashboard') }}"><i class="zmdi zmdi-home"></i> Dashboard </a></li>
-            <li><a href="{{ url ('skills') }}"><i class="zmdi zmdi-trending-up"></i> Skills </a></li>
-            <li><a href="{{ url ('employees') }}"><i class="zmdi zmdi-accounts-alt"></i> Employees </a></li>
-            <li><a href="{{ url ('calendar') }}"><i class="zmdi zmdi-calendar"></i> Calendar </a></li>
+            <li class="{{Request::is('dashboard') ? 'active' : ''}}">
+                <a href="{{ url ('dashboard') }}"><i class="zmdi zmdi-home"></i> Dashboard </a>
+            </li>
+            <li class="{{Request::is('skills') ? 'active' : ''}}">
+                <a href="{{ url ('skills') }}"><i class="zmdi zmdi-trending-up"></i> Skills </a>
+            </li>
+            <li class="{{Request::is('employees') ? 'active' : ''}}">
+                <a href="{{ url ('employees') }}"><i class="zmdi zmdi-accounts-alt"></i> Employees </a>
+            </li>
+            <li class="{{Request::is('calendar') ? 'active' : ''}}">
+                <a href="{{ url ('calendar') }}"><i class="zmdi zmdi-calendar"></i> Calendar </a>
+            </li>
         </ul>
     </div>
 </aside>
