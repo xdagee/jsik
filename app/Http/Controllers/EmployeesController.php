@@ -91,6 +91,11 @@ class EmployeesController extends Controller
             'ethnicity_id' => request('ethnicity_id')
             // 'area_of_speciality_id' => request('area_of_speciality_id'), // selected from db
         ]);
+        try {
+            $employee->specialities()->attach(request('area_of_speciality_id'));   
+        } catch (Exception $e) {
+            DB::rollback();
+        }
 
         // flash message after a successful insertion
         flash('Employee, '.$employee->firstname.' was added successfully!')->success();
