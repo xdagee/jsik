@@ -75,26 +75,29 @@ class EmployeesController extends Controller
             // 'area_of_speciality_id' => 'required'
         ]);
 
-        $employee = Employee::create([
-            'firstname' => request('firstname'), // typed
-            'lastname' => request('lastname'), // typed
-            'othername' => request('othername'), // typed optional
-            'dob' => Carbon::parse(request('dob'))->toDateString(), // picked date ('yyy-mm-dd')
-            'gender' => request('gender'), // choosen radio button
-            'years_at_workplace' => request('years_at_workplace'), // typed
-            'work_place' => request('work_place'), // selection from db
-            'years_at_residence' => request('years_at_residence'), // selected fron db
-            'residence_id' => request('residence_id'), // selected from db
-            'place_of_birth_id' => request('place_of_birth_id'), // selected from db
-            'education_level_id' => request('education_level_id'), // typed
-            'religion_id' => request('religion_id'),
-            'ethnicity_id' => request('ethnicity_id')
-            // 'area_of_speciality_id' => request('area_of_speciality_id'), // selected from db
-        ]);
+        DB::beginTransaction();
         try {
-            $employee->specialities()->attach(request('area_of_speciality_id'));   
+            $employee = Employee::create([
+                'firstname' => request('firstname'), // typed
+                'lastname' => request('lastname'), // typed
+                'othername' => request('othername'), // typed optional
+                'dob' => Carbon::parse(request('dob'))->toDateString(), // picked date ('yyy-mm-dd')
+                'gender' => request('gender'), // choosen radio button
+                'years_at_workplace' => request('years_at_workplace'), // typed
+                'work_place' => request('work_place'), // selection from db
+                'years_at_residence' => request('years_at_residence'), // selected fron db
+                'residence_id' => request('residence_id'), // selected from db
+                'place_of_birth_id' => request('place_of_birth_id'), // selected from db
+                'education_level_id' => request('education_level_id'), // typed
+                'religion_id' => request('religion_id'),
+                'ethnicity_id' => request('ethnicity_id')
+                // 'area_of_speciality_id' => request('area_of_speciality_id'), // selected from db
+            ]);
+
+            $employee->specialities()->attach(request('area_of_speciality_id'));
+            DB::commit();   
         } catch (Exception $e) {
-            DB::rollback();
+            DB::rollBack();
         }
 
         // flash message after a successful insertion
